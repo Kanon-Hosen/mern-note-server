@@ -92,7 +92,7 @@ app.patch('/note/:id', async (req, res) => {
     const id = req.params.id;
     const body = req.body;
     const Note = client.db('note').collection(req.query.name);
-    const cursor = await Note.updateOne({ _id: ObjectId(id) }, { $set: {body } });
+    const cursor = await Note.update({ _id: ObjectId(id) }, { $set: body  });
     res.send(cursor);
 })
 
